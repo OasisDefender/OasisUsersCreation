@@ -1,0 +1,4 @@
+1. Azure cli must be installed and logged in
+2. Command-line JSON processor (jq) must be available (for Ububntu/Debian can installed by command 'apt install jq')
+
+
