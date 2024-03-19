@@ -1,26 +1,53 @@
 {
-	"Version": "2012-10-17",
-	"Statement": [
-		{
-			"Effect": "Allow",
-			"Action": [
-				"ec2:DescribeInstances",
-				"ec2:DescribeInternetGateways",
-				"ec2:DescribeNatGateways",
-				"ec2:DescribeNetworkAcls",
-				"ec2:DescribeSecurityGroupRules",
-				"ec2:DescribeSubnets",
-				"ec2:DescribeVpcs",
-				"elasticloadbalancing:DescribeLoadBalancers",
-				"s3:ListAllMyBuckets"
-			],
-			"Resource": "*"
-		},
-		{
-			"Effect": "Allow",
-			"Action": "rds:DescribeDBInstances",
-			"Resource": "arn:aws:rds:*:*:db:*"
-		}
-	]
+    "Version": "2012-10-17",
+    "Statement": [
+	{
+	    "Effect": "Allow",
+	    "Action": [
+		"cloudformation:DescribeStacks",
+		"cloudformation:ListStacks",
+		"ec2:DescribeInstances",
+		"ec2:DescribeInternetGateways",
+		"ec2:DescribeNatGateways",
+		"ec2:DescribeNetworkAcls",
+		"ec2:DescribeSecurityGroupRules",
+		"ec2:DescribeSubnets",
+		"ec2:DescribeVpcs",
+		"elasticloadbalancing:DescribeLoadBalancers",
+		"lambda:ListFunctions",
+		"s3:ListAllMyBuckets"
+	    ],
+	    "Resource": "*"
+	},
+	{
+	    "Effect": "Allow",
+	    "Action": [
+		"cloudformation:CreateChangeSet",
+		"cloudformation:DescribeChangeSet",
+		"cloudformation:ExecuteChangeSet",
+		"cloudformation:GetTemplate",
+		"cloudformation:ListStackResources"
+	    ],
+	    "Resource": "arn:aws:cloudformation:*:*:stack/*/*"
+	},
+	{
+	    "Effect": "Allow",
+	    "Action": "lambda:GetFunctionConfiguration",
+	    "Resource": "arn:aws:lambda:*:*:function:*"
+	},
+	{
+	    "Effect": "Allow",
+	    "Action": "rds:DescribeDBInstances",
+	    "Resource": "arn:aws:rds:*:*:db:*"
+	},
+	{
+	    "Effect": "Allow",
+	    "Action": [
+		"s3:GetBucketAcl",
+		"s3:GetBucketPublicAccessBlock",
+		"s3:PutLifecycleConfiguration"
+	    ],
+	    "Resource": "arn:aws:s3:::*"
+	}
+    ]
 }
-
