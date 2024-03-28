@@ -76,7 +76,8 @@
             "Type" : "AWS::IAM::AccessKey",
             "Properties" : {
                 "UserName" : { "Ref" : "UserNameParameter" }
-            }
+            },
+            "DependsOn": "OasisUser"
         },
     },
     "Outputs" : {
